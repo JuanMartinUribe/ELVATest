@@ -31,10 +31,10 @@ if __name__ == "__main__":
         if neighborhood != init_neighborhood:
             return [neighborhood, address]
         else:
-            adress_arr = address.split(" ")
-            street_number = str(int(adress_arr[0]) + 100)
-            nxt_adress = f'{street_number} {" ".join(adress_arr[1:])}'
-            return get_next_neighborhood(init_neighborhood, nxt_adress)
+            address_arr = address.split(" ")
+            street_number = str(int(address_arr[0]) + 100)
+            nxt_address = f'{street_number} {" ".join(address_arr[1:])}'
+            return get_next_neighborhood(init_neighborhood, nxt_address)
 
     next_neighborhood, next_address = get_next_neighborhood(neighborhood, ADDRESS)
     print(
