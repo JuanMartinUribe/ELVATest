@@ -6,13 +6,15 @@ import os
 
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
+ARC_URL = os.getenv("ARC_URL")
+
 ADDRESS = "1300 SE Stark Street, Portland, OR 97214"
 
 if __name__ == "__main__":
     gmaps_controller = GoogleMapsController(API_KEY)
     longitude, latitude = gmaps_controller.get_coordinates(ADDRESS)
 
-    arc_controller = ArcController()
+    arc_controller = ArcController(ARC_URL)
     neighborhood = arc_controller.coords_to_neighborhood(longitude, latitude)
 
     print(

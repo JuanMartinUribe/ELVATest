@@ -1,19 +1,17 @@
 from typing import List
 from shapely.geometry import Point, Polygon
-from dotenv import load_dotenv
-import os
 import requests
 
 
 class ArcController:
-    def __init__(self) -> None:
-        load_dotenv()
-        self.url = os.getenv("ARC_URL")
+    def __init__(self,url) -> None:
+        self.url = url
         self.data = requests.get(self.url).json()
+        self.features = []
 
     def coords_to_neighborhood(self, longitude: int, latitude: int) -> str:
-        features = self.data.get("features")
-        for feature in features:
+        if not self.features: self.features = self.data.get("features")
+        for feature in self.features:
             try:
                 coords = feature.get("geometry").get("coordinates")[0]
             except ValueError as e:
