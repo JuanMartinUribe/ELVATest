@@ -8,6 +8,6 @@ class GoogleMapsController:
 
     def get_coordinates(self, adress: str) -> List:
         geocode_result = self.gmaps_client.geocode(adress)
-        location = geocode_result = geocode_result[0]["geometry"]["location"]
-        longitude, latitude = location["lng"], location["lat"]
+        location = geocode_result = geocode_result[0].get("geometry").get("location")
+        longitude, latitude = location.get("lng"), location.get("lat")
         return [longitude, latitude]
