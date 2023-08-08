@@ -83,6 +83,7 @@ I realized that the recursive function was making a request to Google Maps API o
 
 However it was also making a request to Arc's API on each recursive call, which is not necessary because the response is always the same, a list of all of the neighborhoods.
 
-Therefore, the following code will only make the request once:
+Therefore, I decided to only make one call and save it as an instance attribute:
 
-![image](https://github.com/JuanMartinUribe/ELVATest/assets/53051383/ae201773-3cd9-4ab7-a717-a31164042c10)
+![image](https://github.com/JuanMartinUribe/ELVATest/assets/53051383/10b15579-e6a6-447b-b27b-92619eb72175)
+
