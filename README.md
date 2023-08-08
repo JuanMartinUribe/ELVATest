@@ -25,7 +25,7 @@ After a long hour of going trough it's documentation I could only come up with o
 
 **Send a request to receive all neighborhoods in the respective region and check each neighborhood's ring vortices in order to determine if the coordinates are inside it**
 
-According to Arc's documentation, each neighborhood is represented as a shape, in this case a polygon. After sending a request to the endpoint, I was able to get each neighborhood's "ring" as two dimensional array of vortices. Finally, I used a third party library in order to determine if the coordinates gotten from google maps API lied within a neighborhood.
+According to Arc's documentation, each neighborhood is represented as a shape, in this case a polygon. After sending a request to the endpoint, I was able to get each neighborhood's "ring" as two dimensional array of vortices. Finally, I used a third party library in order to determine if the coordinates gotten from google maps API were inside a neighborhood.
 
 ![image](https://github.com/JuanMartinUribe/ELVATest/assets/53051383/6d9565ef-856b-4ad7-91e1-640b63a9d84f)
 
@@ -34,13 +34,13 @@ According to Arc's documentation, each neighborhood is represented as a shape, i
 ## 3. The neighborhood
 For this step refer lines 11-18 in the `main.py` file
 
-This step is a combination of the two steps above, given the address "1300 SE Stark Street, Portland, OR 97214":
+This step is a combination of the two steps above, given the address **"1300 SE Stark Street, Portland, OR 97214"**:
 1. I used google maps API to convert the address to coordinates
 2. Use Arc's API to get a list of the neighborhoods and their "rings", then check if the coordinates lie within one of the neighborhoods.
 This was the outcome:
 ![image](https://github.com/JuanMartinUribe/ELVATest/assets/53051383/793d83fa-34f4-4e69-888d-9a5c39ad2d96)
 ### The coordinates I got from google maps API were **lng:-122.652102, lat:45.5189567**,
-### These coordinates lied within one of the neighborhood's "ring" gotten from Arc's API : **BUCKMAN**
+### These coordinates were inside one of the neighborhood's "ring" gotten from Arc's API : **BUCKMAN**
 
 ## 4. Recursive function that finds the next neighborhood
 For this step refer the `main.py` file
