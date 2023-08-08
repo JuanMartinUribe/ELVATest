@@ -10,7 +10,7 @@ https://github.com/googlemaps/google-maps-services-python
 
 Working with google maps API was very straightforward and easy to implement, once the package was installed and imported, I created a class that initiates the client and has a method to go from an address to latitude/longitude. It receives an address as parameter and returns a length 2 array with the longitude and latitude.
 
-![image](https://github.com/JuanMartinUribe/ELVATest/assets/53051383/ec1a9fc6-1549-478d-be36-96e5fe327d12)
+![image](https://github.com/JuanMartinUribe/ELVATest/assets/53051383/31ef49fa-9da0-404d-b916-35c45c597b7f)
 
 **_I did not have any problems working with this API, it is properly documented and has a variety of examples on different technologies._**
 ## 2. Using ArcGis REST services in order to go from coordinates to neighborhood
@@ -27,7 +27,7 @@ After a long hour of going trough it's documentation I could only come up with o
 
 According to Arc's documentation, each neighborhood is represented as a shape, in this case a polygon. After sending a request to the endpoint, I was able to get each neighborhood's "ring" as two dimensional array of vortices. Finally, I used a third party library in order to determine if the coordinates gotten from google maps API lied within a neighborhood.
 
-![image](https://github.com/JuanMartinUribe/ELVATest/assets/53051383/8a5954e0-9be0-4fe7-ba20-bb6cf66610fc)
+![image](https://github.com/JuanMartinUribe/ELVATest/assets/53051383/6d9565ef-856b-4ad7-91e1-640b63a9d84f)
 
 **_This step took me the longest, I did not find Arc's API to be easy to understand/work with but they did have a lot of documentation_**
 
@@ -49,7 +49,7 @@ This step was interesting because it was not hard to solve but I found it hard t
 
 The import aspect to keep in mind is that the recursive method references the `Gmaps` and `Arc` instances in order to get the coordinates + neighborhood each time the method is called. 
 
-![image](https://github.com/JuanMartinUribe/ELVATest/assets/53051383/72c7a9ec-9882-40ef-903c-9650602d6db4)
+![image](https://github.com/JuanMartinUribe/ELVATest/assets/53051383/68195b79-1188-4536-be45-9f49f63f24a8)
 
 _The method adds 100 to the street in the address and calculates the new address's coordinates, then the neighborhood of those coordinates and :_
 
