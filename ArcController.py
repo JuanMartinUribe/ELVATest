@@ -12,20 +12,20 @@ class ArcController:
         self.data = requests.get(self.url).json()
 
     def coords_to_neighborhood(self, longitude: int, latitude: int) -> str:
-        features = self.data["features"]
+        features = self.data.get("features")
         for feature in features:
             try:
-                coords = feature["geometry"]["coordinates"][0]
-                polygon_vertices = [tuple(coord) for coord in coords]
+                coords = feature.get("geometry").get("coordinates")[0]
             except ValueError as e:
+                print('This feature coordinates array is not parsed properly',e)
                 continue
+            polygon_vertices = [tuple(coord) for coord in coords]
             point_coords = (longitude, latitude)
-            result = ArcController._is_point_inside_polygon(
+            is_inside_polygon = ArcController._is_point_inside_polygon(
                 polygon_vertices, point_coords
             )
-            if result:
-                print()
-                return feature["properties"]["NAME"]
+            if is_inside_polygon:
+                return feature.get("properties").get("NAME")
         return ""
 
     @staticmethod
