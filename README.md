@@ -69,3 +69,20 @@ For this step refer the `main.py` file
 **_... and the whole output of the script is:_**
 
 ![image](https://github.com/JuanMartinUribe/ELVATest/assets/53051383/7025dc00-7055-430a-a12c-3719609606b6)
+
+## 6. Running the script and other comments
+If you want to run this script, clone the project and make sure to install the `requirements.txt` file by running `pip install -r requirements.txt` 
+
+Make sure to add your Google Map's API key as an environment variable called `API_KEY`
+
+Add another environment variable called `ARC_URL`, this is the endpoint of Arc's API
+
+Run the command `python main.py`
+### Optimizations
+I realized that the recursive function was making a request to Google Maps API on every method call, which is necessary because we need the coordinates for each new address.
+
+However it was also making a request to Arc's API on each recursive call, which is not necessary because the response is always the same, a list of all of the neighborhoods.
+
+Therefore, the following code will only make the request once:
+
+![image](https://github.com/JuanMartinUribe/ELVATest/assets/53051383/ae201773-3cd9-4ab7-a717-a31164042c10)
