@@ -5,8 +5,7 @@ import requests
 
 class ArcController:
     def __init__(self,url) -> None:
-        self.url = url
-        self.data = requests.get(self.url).json()
+        self.data = requests.get(url).json()
         self.features = []
 
     def coords_to_neighborhood(self, longitude: int, latitude: int) -> str:
